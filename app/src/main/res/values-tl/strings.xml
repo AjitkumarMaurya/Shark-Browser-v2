@@ -4,7 +4,7 @@
   <string name="action_ok">OK</string>
   <string name="urlbar_hint">Maghanap o ilagay ang address</string>
   <string name="menu_settings">Mga Setting</string>
-  <string name="menu_about">Detalye ng Firefox Rocket</string>
+  <string name="menu_about">Detalye ng Shark Browser</string>
   <string name="menu_help">Tulong</string>
   <string name="menu_rights">Alamin ang Iyong mga Karapatan</string>
   <string name="menu_give_feedback">Magbigay ng feedback</string>
@@ -16,7 +16,7 @@
   <string name="accessibility_find_next_result">Susunod na resulta</string>
   <string name="accessibility_find_previous_result">Nakaraang resulta</string>
   <string name="accessibility_dismiss_find_in_page">Tapos na ang paghahanap sa pahina</string>
-  <string name="text_selection_search_action">Hanapin sa Firefox Rocket</string>
+  <string name="text_selection_search_action">Hanapin sa Shark Browser</string>
   <string name="about_content_body">%1$s ay isang mabilis at magaan na browser na gawa ng %2$s. Ang aming misyon ay mapanatiling malusog at bukas para sa lahat ang internet.</string>
   <string name="about_link_learn_more">Detalye</string>
   <string name="about_link_support">Tulong</string>
@@ -185,7 +185,7 @@
   <string name="remove">Alisin</string>
   <string name="pin_site">I-pin ang site</string>
   <string name="privacy_policy_update_notification_title">Abiso sa Update ng Produkto</string>
-  <string name="privacy_policy_update_notification_action">Upang gawing mas mahusay ang Firefox Lite para sa iyo at sa lahat, gumawa kami ng ilang mga pagbabago sa aming patakaran sa privacy. Tapikin upang matuto nang higit pa.</string>
+  <string name="privacy_policy_update_notification_action">Upang gawing mas mahusay ang Shark Browser para sa iyo at sa lahat, gumawa kami ng ilang mga pagbabago sa aming patakaran sa privacy. Tapikin upang matuto nang higit pa.</string>
   <string name="rate_app_dialog_text_title">Naibigan mo ba ang %1$s?</string>
   <string name="rate_app_dialog_text_content">Maraming salamat sa iyong pagtangkilik sa aming produkto. Ang iyong feedback ay napakahalaga sa amin.</string>
   <string name="rate_app_dialog_btn_go_rate">Rate sa Amin</string>

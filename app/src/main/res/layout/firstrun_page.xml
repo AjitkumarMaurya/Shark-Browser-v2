@@ -10,7 +10,7 @@
     tools:background="#883388FF">
 
     <!-- The actual size of FirstrunCardView is determined in onMeasure() -->
-    <org.mozilla.focus.firstrun.FirstrunCardView
+    <ajit.browser.focus.firstrun.FirstrunCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -105,6 +105,6 @@
 
         </LinearLayout>
 
-    </org.mozilla.focus.firstrun.FirstrunCardView>
+    </ajit.browser.focus.firstrun.FirstrunCardView>
 
 </FrameLayout>

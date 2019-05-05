@@ -12,4 +12,4 @@
     android:textSize="14sp"
     android:padding="18dp"
     android:textColor="#ff979797"
-    tools:text="http://www.mozilla.org" />
+    tools:text="http://www.google.com" />

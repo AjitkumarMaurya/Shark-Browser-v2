@@ -67,7 +67,7 @@ public class ExceptionCatchingInputStream extends InputStream {
   }
 
   @Override
-  public int read(byte[] buffer) throws IOException {
+  public int read(byte[] buffer) {
     int read;
     try {
       read = wrapped.read(buffer);
@@ -79,7 +79,7 @@ public class ExceptionCatchingInputStream extends InputStream {
   }
 
   @Override
-  public int read(byte[] buffer, int byteOffset, int byteCount) throws IOException {
+  public int read(byte[] buffer, int byteOffset, int byteCount) {
     int read;
     try {
       read = wrapped.read(buffer, byteOffset, byteCount);
@@ -96,7 +96,7 @@ public class ExceptionCatchingInputStream extends InputStream {
   }
 
   @Override
-  public long skip(long byteCount) throws IOException {
+  public long skip(long byteCount) {
     long skipped;
     try {
       skipped = wrapped.skip(byteCount);
@@ -108,7 +108,7 @@ public class ExceptionCatchingInputStream extends InputStream {
   }
 
   @Override
-  public int read() throws IOException {
+  public int read() {
     int result;
     try {
       result = wrapped.read();

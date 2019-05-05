@@ -2,9 +2,9 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <resources>
-    <string name="mozilla" translatable="false">Mozilla</string>
-    <string name="firefox" translatable="false">Firefox</string>
-    <string name="mpl" translatable="false">Mozilla Public License</string>
+    Shark Browser<string name="mozilla" translatable="false">Shark Browser</string>
+    <string name="firefox" translatable="false">Shark Browser</string>
+    <string name="mpl" translatable="false">Shark Browser Public License</string>
     <!-- Label used for buttons, e.g. in dialogs -->
     <string name="action_cancel">CANCEL</string>
     <!-- Label used for buttons, e.g. in dialogs -->
@@ -46,18 +46,13 @@
     <!-- This is the label of an action we offer when the user selects text in other third-party apps.
          Clicking this action will launch Rocket and perform a search in the default search engine.
          Please keep the "Firefox Rocket" part and don't localize the product name. -->
-    <string name="text_selection_search_action">Search in Firefox Lite</string>
+    <string name="text_selection_search_action">Search in Shark Browser</string>
 
     <!-- Content of "about Rocket". Argument 1 is the major body of the content #about_content_body.
          Argument 2,4,6,8 is the urls.
          Argument 3,5,7,9 is the Label of the urls. -->
     <string name="about_content" translatable="false"><![CDATA[
 <p>%1$s<br/>
-<a href="%2$s">%3$s</a></p><br/><br/>
-<a href="%4$s">%5$s</a><br/><br/>
-<a href="%6$s">%7$s</a><br/><br/>
-<a href="%8$s">%9$s</a><br/><br/>
-<a href="%10$s">%11$s</a><br/><br/>
     ]]></string>
 
     <!-- Content of about Rocket.
@@ -412,7 +407,7 @@
    
     <!-- In-app notification, Privacy policy update -->
     <string name="privacy_policy_update_notification_title">Product Update Notice</string>
-    <string name="privacy_policy_update_notification_action">To make Firefox Lite better for you and everyone, we made some changes to our privacy policy. Tap to learn more.</string>
+    <string name="privacy_policy_update_notification_action">To make Shark Browser  better for you and everyone, we made some changes to our privacy policy. Tap to learn more.</string>
 
     <!--In-app Promotion, Rate the App-->
     <!-- The title of the Message to prompt users to rate Rocket on Play Store, %1$s is the App name i.e. Rocket. -->
@@ -423,16 +418,16 @@
     <string name="rate_app_dialog_btn_feedback">Leave Feedback</string>
     <string name="rate_app_notification_action_feedback">FEEDBACK</string>
 
-    <string name="rate_app_feedback_url" translatable="false">https://qsurvey.mozilla.com/s3/Firefox-Rocket-3-0-Input/</string>
+    <string name="rate_app_feedback_url" translatable="false">https://play.google.com/store/apps/details?id=ajit.browser.lightning</string>
 
     <!--In-app Promotion, Share app.-->
     <!-- The title of the Message to prompt users to share Rocket with friends, %1$s is the App name i.e. Rocket. -->
     <string name="share_app_dialog_text_title">Share %1$s with friends!</string>
     <string name="share_app_dialog_text_content">- Fast and lightweight\n- Data saving\n- Powerful screenshots</string>
     <string name="share_app_dialog_btn_share">Share</string>
-    <string name="share_app_google_play_url" translatable="false">https://mzl.la/2kScptw</string>
+    <string name="share_app_google_play_url" translatable="false">https://play.google.com/store/apps/details?id=ajit.browser.lightning</string>
     <!-- The message template used when user shares Rocket with friends. %1$s is the App name i.e. Rocket, and %2$s is the Google Play url, and %3$s is "Mozilla"-->
-    <string name="share_app_promotion_text">Hey, check out this fast and lightweight browser from %3$s. %1$s %2$s</string>
+    <string name="share_app_promotion_text">Hey, check out this fast and lightweight browser from . %1$s %2$s</string>
 
     <!-- Text shown in the "Your rights" screen.
     %1$s will be replaced with the name of the app (e.g. Firefox Rocket)
@@ -450,7 +445,7 @@
     %2$s will be replaced with a URL linking to the trademark policy (e.g. https://www.mozilla.org/foundation/trademarks/policy/)
     %3$s will be replaced by "Mozilla"
     %4$s will be replaced by "Firefox"-->
-    <string name="your_rights_content3"><![CDATA[You are not granted any rights or licenses to the trademarks of the Mozilla Foundation or any party, including the %3$s, %4$s or %1$s names or logos. Additional information may be found <a href="%2$s">here</a>.]]></string>
+    <string name="your_rights_content3"><![CDATA[You are not granted any rights or licenses to the trademarks of the Shark Browser Foundation or any party, including the %3$s, %4$s or %1$s names or logos. Additional information may be found <a href="%2$s">here</a>.]]></string>
 
     <!-- Text shown in the "Your rights" screen.
     %1$s will be replaced with the name of the app (e.g. Firefox Rocket)
@@ -571,4 +566,8 @@
     <string name="http_auth_dialog_user_name">Username</string>
     <!-- Text on an input password field in web auth dialog. This hint user to input password here. -->
     <string name="http_auth_dialog_password">Password</string>
+
+    <string name="app_id">ca-app-pub-3025761544874688~1039812830</string>
+    <string name="initial_id">ca-app-pub-3025761544874688/1239957530</string>
+
 </resources>

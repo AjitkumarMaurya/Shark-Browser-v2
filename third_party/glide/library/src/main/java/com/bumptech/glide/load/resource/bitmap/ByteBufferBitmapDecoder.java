@@ -20,7 +20,7 @@ public class ByteBufferBitmapDecoder implements ResourceDecoder<ByteBuffer, Bitm
   }
 
   @Override
-  public boolean handles(ByteBuffer source, Options options) throws IOException {
+  public boolean handles(ByteBuffer source, Options options) {
     return downsampler.handles(source);
   }
 

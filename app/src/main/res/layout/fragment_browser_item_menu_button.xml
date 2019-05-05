@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center_horizontal|bottom">
 
-    <org.mozilla.focus.widget.EqualDistributeGrid
+    <ajit.browser.focus.widget.EqualDistributeGrid
         android:id="@+id/browser_screen_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         android:layout_marginEnd="@dimen/browser_fixed_menu_horizontal_margin"
         android:layout_marginStart="@dimen/browser_fixed_menu_horizontal_margin">
 
-        <org.mozilla.focus.tabs.TabCounter
+        <ajit.browser.focus.tabs.TabCounter
             android:id="@+id/btn_tab_tray"
             style="@style/MainMenuButton"
             app:drawableColor="@color/browser_menu_button"/>
@@ -27,5 +27,5 @@
         <include layout="@layout/button_capture" />
 
         <include layout="@layout/button_more" />
-    </org.mozilla.focus.widget.EqualDistributeGrid>
+    </ajit.browser.focus.widget.EqualDistributeGrid>
 </FrameLayout>

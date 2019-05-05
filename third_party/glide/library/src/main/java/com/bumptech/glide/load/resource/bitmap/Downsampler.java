@@ -106,7 +106,7 @@ public final class Downsampler {
     }
 
     @Override
-    public void onDecodeComplete(BitmapPool bitmapPool, Bitmap downsampled) throws IOException {
+    public void onDecodeComplete(BitmapPool bitmapPool, Bitmap downsampled) {
       // Do nothing.
     }
   };
@@ -480,7 +480,7 @@ public final class Downsampler {
     return (int) (value + 0.5d);
   }
 
-  private boolean shouldUsePool(ImageType imageType) throws IOException {
+  private boolean shouldUsePool(ImageType imageType) {
     // On KitKat+, any bitmap (of a given config) can be used to decode any other bitmap
     // (with the same config).
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -500,8 +500,7 @@ public final class Downsampler {
       boolean isExifOrientationRequired,
       BitmapFactory.Options optionsWithScaling,
       int targetWidth,
-      int targetHeight)
-      throws IOException {
+      int targetHeight) {
 
     if (hardwareConfigState.setHardwareConfigIfAllowed(
         targetWidth,

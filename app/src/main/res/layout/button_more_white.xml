@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MainMenuButton">
 
-    <org.mozilla.rocket.nightmode.themed.ThemedImageButton
+    <ajit.browser.lightning.nightmode.themed.ThemedImageButton
         android:id="@+id/btn_menu_home"
         style="@style/MainMenuButton"
         android:layout_centerInParent="true"

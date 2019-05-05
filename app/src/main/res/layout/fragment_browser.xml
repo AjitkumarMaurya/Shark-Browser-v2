@@ -8,14 +8,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <org.mozilla.rocket.nightmode.themed.ThemedLinearLayout
+    <ajit.browser.lightning.nightmode.themed.ThemedLinearLayout
         android:id="@+id/browser_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/browser_background"
         android:orientation="vertical">
 
-        <org.mozilla.rocket.nightmode.themed.ThemedRelativeLayout
+        <ajit.browser.lightning.nightmode.themed.ThemedRelativeLayout
             android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                     <include layout="@layout/toolbar" />
 
                     <!-- divider between appbar and web-vew, will be covered by progress bar -->
-                    <org.mozilla.rocket.nightmode.themed.ThemedView
+                    <ajit.browser.lightning.nightmode.themed.ThemedView
                         android:id="@+id/url_bar_divider"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -48,7 +48,7 @@
                         android:background="@drawable/url_bar_divider"
                         tools:background="#FF0000" />
 
-                    <org.mozilla.focus.widget.AnimatedProgressBar
+                    <ajit.browser.focus.widget.AnimatedProgressBar
                         android:id="@+id/progress"
                         style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="match_parent"
@@ -64,9 +64,9 @@
 
             </android.support.design.widget.AppBarLayout>
 
-        </org.mozilla.rocket.nightmode.themed.ThemedRelativeLayout>
+        </ajit.browser.lightning.nightmode.themed.ThemedRelativeLayout>
 
-        <org.mozilla.focus.widget.ResizableKeyboardLayout
+        <ajit.browser.focus.widget.ResizableKeyboardLayout
             android:id="@+id/main_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -90,10 +90,10 @@
 
             </LinearLayout>
 
-        </org.mozilla.focus.widget.ResizableKeyboardLayout>
-    </org.mozilla.rocket.nightmode.themed.ThemedLinearLayout>
+        </ajit.browser.focus.widget.ResizableKeyboardLayout>
+    </ajit.browser.lightning.nightmode.themed.ThemedLinearLayout>
 
-    <org.mozilla.rocket.nightmode.themed.ThemedView
+    <ajit.browser.lightning.nightmode.themed.ThemedView
         android:id="@+id/bottom_menu_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"

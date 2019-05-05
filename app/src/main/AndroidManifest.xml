@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This Source Code Form is subject to the terms of the Mozilla Public
-   - License, v. 2.0. If a copy of the MPL was not distributed with this
-   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="org.mozilla.focus">
+          package="ajit.browser.lightning">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -28,17 +25,17 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:name="org.mozilla.focus.FocusApplication">
+        android:name="ajit.browser.focus.FocusApplication">
 
         <activity
-            android:name="org.mozilla.focus.activity.MainActivity"
+            android:name="ajit.browser.focus.activity.MainActivity"
             android:enabled="true"
             android:screenOrientation="portrait"
             android:configChanges="keyboard|keyboardHidden|mcc|mnc|orientation|screenSize|locale|layoutDirection|smallestScreenSize|screenLayout"
             android:launchMode="singleTask"
             android:exported="false" />
 
-        <activity android:name="org.mozilla.rocket.component.RocketLauncherActivity" />
+        <activity android:name="ajit.browser.lightning.component.RocketLauncherActivity" />
 
         <activity-alias
             android:name="org.mozilla.rocket.activity.MainActivity"
@@ -46,7 +43,7 @@
             android:icon="@mipmap/ic_launcher"
             android:exported="true"
             android:label="@string/app_name"
-            android:targetActivity="org.mozilla.rocket.component.RocketLauncherActivity">
+            android:targetActivity=".component.RocketLauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,7 +76,7 @@
         </activity-alias>
 
         <activity
-            android:name="org.mozilla.focus.activity.TextActionActivity"
+            android:name="ajit.browser.focus.activity.TextActionActivity"
             android:enabled="true"
             android:exported="true"
             android:label="@string/text_selection_search_action"
@@ -96,7 +93,7 @@
         </activity>
 
         <activity
-            android:name="org.mozilla.rocket.privately.PrivateModeActivity"
+            android:name="ajit.browser.lightning.privately.PrivateModeActivity"
             android:enabled="true"
             android:exported="false"
             android:launchMode="singleTask"
@@ -112,7 +109,7 @@
 
         <!-- SettingsActivity title is set dynamically for multilocale support -->
         <activity
-            android:name="org.mozilla.focus.activity.SettingsActivity"
+            android:name="ajit.browser.focus.activity.SettingsActivity"
             android:enabled="true"
             android:exported="false"
             android:launchMode="singleTask"
@@ -121,20 +118,20 @@
             android:configChanges="locale" />
 
         <activity
-            android:name="org.mozilla.focus.activity.InfoActivity"
+            android:name="ajit.browser.focus.activity.InfoActivity"
             android:enabled="true"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/SettingsTheme" />
 
         <activity
-            android:name="org.mozilla.focus.screenshot.ScreenshotViewerActivity"
+            android:name="ajit.browser.focus.screenshot.ScreenshotViewerActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
         <!-- This will either be an actual FCM messaging service, or a dummy service that do nothing-->
         <service
-            android:name="org.mozilla.focus.notification.RocketMessagingService">
+            android:name="ajit.browser.focus.notification.RocketMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
@@ -142,7 +139,7 @@
         <!-- Custom Tabs Service is currently not registering the intent-filter before its ready.
              It should also be set to exported=true if you want to turn it on -->
         <service
-            android:name="org.mozilla.focus.customtabs.CustomTabsService"
+            android:name="ajit.browser.focus.customtabs.CustomTabsService"
             android:enabled="false"
             android:exported="false"
             tools:ignore="ExportedService" />
@@ -160,25 +157,25 @@
             android:resource="@color/surveyNotificationAccent"/>
 
         <provider
-            android:name="org.mozilla.focus.provider.HistoryProvider"
+            android:name="ajit.browser.focus.provider.HistoryProvider"
             android:authorities="${applicationId}.provider.historyprovider"
             android:enabled="true"
             android:exported="false" />
 
         <provider
-            android:name="org.mozilla.focus.provider.ScreenshotProvider"
+            android:name="ajit.browser.focus.provider.ScreenshotProvider"
             android:authorities="${applicationId}.provider.screenshotprovider"
             android:enabled="true"
             android:exported="false" />
 
         <provider
-            android:name="org.mozilla.focus.provider.DownloadInfoProvider"
+            android:name="ajit.browser.focus.provider.DownloadInfoProvider"
             android:authorities="${applicationId}.provider.downloadprovider"
             android:enabled="true"
             android:exported="false" />
 
         <provider
-            android:name="org.mozilla.focus.provider.SettingProvider"
+            android:name="ajit.browser.focus.provider.SettingProvider"
             android:authorities="${applicationId}.provider.settingprovider"
             android:enabled="true"
             android:exported="false" />
@@ -194,7 +191,7 @@
         </provider>
 
         <receiver
-            android:name="org.mozilla.focus.components.DownloadCompleteReceiver"
+            android:name="ajit.browser.focus.components.DownloadCompleteReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -203,43 +200,43 @@
         </receiver>
 
         <receiver
-            android:name="org.mozilla.focus.notification.NotificationActionBroadcastReceiver"
+            android:name="ajit.browser.focus.notification.NotificationActionBroadcastReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="action_notification"/>
             </intent-filter>
         </receiver>
 
-        <receiver android:name="org.mozilla.rocket.periodic.PeriodicReceiver"
+        <receiver android:name="ajit.browser.lightning.periodic.PeriodicReceiver"
             android:exported="false"
             android:enabled="true" />
 
         <service
-            android:name="org.mozilla.focus.components.RelocateService"
+            android:name="ajit.browser.focus.components.RelocateService"
             android:exported="false" />
 
         <provider
-            android:name="org.mozilla.focus.provider.FirebaseInitProvider"
+            android:name="ajit.browser.focus.provider.FirebaseInitProvider"
             android:authorities="${applicationId}.provider.firebasehelperprovider"
             android:enabled="true"
             android:exported="false"
             android:initOrder="100" />
 
         <service
-            android:name="org.mozilla.focus.components.ComponentToggleService"
+            android:name="ajit.browser.focus.components.ComponentToggleService"
             android:enabled="true"
             android:exported="false">
             <!-- The enabled state should be converted to resource value and diff in 21~23 and 24~ -->
         </service>
 
         <service
-            android:name="org.mozilla.rocket.component.PrivateSessionNotificationService"
+            android:name="ajit.browser.lightning.component.PrivateSessionNotificationService"
             android:process=":private_mode" />
 
         <activity
             android:enabled="false"
             android:exported="true"
-            android:name="org.mozilla.rocket.component.ConfigActivity"
+            android:name="ajit.browser.lightning.component.ConfigActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:icon="@drawable/menu_settings"
@@ -257,12 +254,12 @@
         </activity>
 
         <activity
-            android:name=".activity.EditBookmarkActivity"
+            android:name="ajit.browser.focus.activity.EditBookmarkActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:label="@string/title_activity_edit_bookmark" />
         <activity
-            android:name="org.mozilla.rocket.nightmode.AdjustBrightnessDialog"
+            android:name="ajit.browser.lightning.nightmode.AdjustBrightnessDialog"
             android:theme="@style/TransparentTheme"
             android:exported="false" />
     </application>

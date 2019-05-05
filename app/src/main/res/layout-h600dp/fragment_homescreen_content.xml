@@ -2,13 +2,13 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<org.mozilla.focus.widget.SwipeMotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ajit.browser.focus.widget.SwipeMotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home_container">
 
-    <org.mozilla.focus.home.HomeScreenBackground
+    <ajit.browser.focus.home.HomeScreenBackground
         android:id="@+id/home_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -72,4 +72,4 @@
 
 
 
-</org.mozilla.focus.widget.SwipeMotionLayout>
+</ajit.browser.focus.widget.SwipeMotionLayout>

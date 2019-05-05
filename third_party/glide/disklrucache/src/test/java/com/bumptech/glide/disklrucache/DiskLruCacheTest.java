@@ -877,7 +877,7 @@ public final class DiskLruCacheTest {
     writeFile(new File(dir2, "otherFile1"), "F");
   }
 
-  private void assertGarbageFilesAllDeleted() throws Exception {
+  private void assertGarbageFilesAllDeleted() {
     assertThat(getCleanFile("g1", 0)).doesNotExist();
     assertThat(getCleanFile("g1", 1)).doesNotExist();
     assertThat(getCleanFile("g2", 0)).doesNotExist();

@@ -718,7 +718,7 @@ public final class DiskLruCache implements Closeable {
      * Returns an unbuffered input stream to read the last committed value,
      * or null if no value has been committed.
      */
-    private InputStream newInputStream(int index) throws IOException {
+    private InputStream newInputStream(int index) {
       synchronized (DiskLruCache.this) {
         if (entry.currentEditor != this) {
           throw new IllegalStateException();
@@ -743,7 +743,7 @@ public final class DiskLruCache implements Closeable {
       return in != null ? inputStreamToString(in) : null;
     }
 
-    public File getFile(int index) throws IOException {
+    public File getFile(int index) {
       synchronized (DiskLruCache.this) {
         if (entry.currentEditor != this) {
             throw new IllegalStateException();
@@ -839,7 +839,7 @@ public final class DiskLruCache implements Closeable {
       }
     }
 
-    public String getLengths() throws IOException {
+    public String getLengths() {
       StringBuilder result = new StringBuilder();
       for (long size : lengths) {
         result.append(' ').append(size);

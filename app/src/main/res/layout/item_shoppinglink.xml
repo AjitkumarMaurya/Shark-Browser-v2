@@ -4,7 +4,7 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<org.mozilla.rocket.content.view.SquaredLayout
+<ajit.browser.lightning.content.view.SquaredLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/shoppinglink_item"
@@ -34,7 +34,7 @@
             android:src="@drawable/image_pulsa"
             android:elevation="4dp"/>
 
-        <org.mozilla.rocket.nightmode.themed.ThemedTextView
+        <ajit.browser.lightning.nightmode.themed.ThemedTextView
             style="@style/Body1"
             android:id="@+id/shoppinglink_category_text"
             android:layout_width="match_parent"
@@ -50,4 +50,4 @@
             tools:text="Pulsa"/>
 
     </RelativeLayout>
-</org.mozilla.rocket.content.view.SquaredLayout>
+</ajit.browser.lightning.content.view.SquaredLayout>

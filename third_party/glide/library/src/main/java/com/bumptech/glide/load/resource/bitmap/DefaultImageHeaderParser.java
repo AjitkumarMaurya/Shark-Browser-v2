@@ -404,14 +404,14 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override
-    public long skip(long total) throws IOException {
+    public long skip(long total) {
       int toSkip = (int) Math.min(byteBuffer.remaining(), total);
       byteBuffer.position(byteBuffer.position() + toSkip);
       return toSkip;
     }
 
     @Override
-    public int read(byte[] buffer, int byteCount) throws IOException {
+    public int read(byte[] buffer, int byteCount) {
       int toRead = Math.min(byteCount, byteBuffer.remaining());
       if (toRead == 0) {
         return -1;
@@ -421,7 +421,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override
-    public int getByte() throws IOException {
+    public int getByte() {
       if (byteBuffer.remaining() < 1) {
         return -1;
       }

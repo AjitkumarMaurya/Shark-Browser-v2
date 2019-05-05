@@ -7,7 +7,7 @@
     android:background="@color/paletteWhite100"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.mozilla.focus.activity.EditBookmarkActivity"
+    tools:context="ajit.browser.focus.activity.EditBookmarkActivity"
     tools:showIn="@layout/activity_edit_bookmark">
 
     <android.support.constraint.ConstraintLayout style="@style/NewEditTextBackgroundStyle">

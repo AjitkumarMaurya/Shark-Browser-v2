@@ -169,12 +169,12 @@ public final class ByteBufferUtil {
     }
 
     @Override
-    public int available() throws IOException {
+    public int available() {
       return byteBuffer.remaining();
     }
 
     @Override
-    public int read() throws IOException {
+    public int read() {
       if (!byteBuffer.hasRemaining()) {
         return -1;
       }

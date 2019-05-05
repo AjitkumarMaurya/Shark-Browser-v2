@@ -32,7 +32,7 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:src="@mipmap/ic_launcher" />
 
-    <org.mozilla.rocket.nightmode.themed.ThemedTextView
+    <ajit.browser.lightning.nightmode.themed.ThemedTextView
         android:id="@+id/text"
         style="@style/Body4"
         android:layout_width="@dimen/top_site_textview_width"

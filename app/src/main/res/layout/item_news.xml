@@ -4,7 +4,7 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<org.mozilla.rocket.nightmode.themed.ThemedRelativeLayout
+<ajit.browser.lightning.nightmode.themed.ThemedRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/news_item"
@@ -52,7 +52,7 @@
         android:orientation="vertical"
         android:layout_centerVertical="true">
 
-        <org.mozilla.rocket.nightmode.themed.ThemedTextView
+        <ajit.browser.lightning.nightmode.themed.ThemedTextView
             style="@style/Body2"
             android:id="@+id/news_item_headline"
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
             android:maxLines="2"
             tools:text="website_title"/>
 
-        <org.mozilla.rocket.nightmode.themed.ThemedRelativeLayout
+        <ajit.browser.lightning.nightmode.themed.ThemedRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -89,7 +89,7 @@
                 android:layout_alignParentEnd="true"
                 android:textAlignment="viewEnd"
                 tools:text="5 month ago....."/>
-        </org.mozilla.rocket.nightmode.themed.ThemedRelativeLayout>
+        </ajit.browser.lightning.nightmode.themed.ThemedRelativeLayout>
 
     </LinearLayout>
-</org.mozilla.rocket.nightmode.themed.ThemedRelativeLayout>
+</ajit.browser.lightning.nightmode.themed.ThemedRelativeLayout>

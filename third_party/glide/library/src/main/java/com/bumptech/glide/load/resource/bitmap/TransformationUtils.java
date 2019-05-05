@@ -489,7 +489,7 @@ public final class TransformationUtils {
     }
 
     @Override
-    public void lockInterruptibly() throws InterruptedException {
+    public void lockInterruptibly() {
       // do nothing
     }
 
@@ -499,7 +499,7 @@ public final class TransformationUtils {
     }
 
     @Override
-    public boolean tryLock(long time, @NonNull TimeUnit unit) throws InterruptedException {
+    public boolean tryLock(long time, @NonNull TimeUnit unit) {
       return true;
     }
 

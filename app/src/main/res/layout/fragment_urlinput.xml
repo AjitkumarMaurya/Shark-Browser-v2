@@ -2,7 +2,7 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<org.mozilla.focus.widget.ResizableKeyboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ajit.browser.focus.widget.ResizableKeyboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/background"
@@ -76,7 +76,8 @@
                 android:layout_height="@dimen/common_margin_m7"
                 android:background="@color/paletteLightGreyB100"
                 android:clipToPadding="false"
-                android:paddingStart="16dp" />
+                android:paddingStart="16dp"
+                tools:ignore="MissingConstraints" />
 
             <View
                 android:layout_width="match_parent"
@@ -95,7 +96,7 @@
                 app:layout_constraintTop_toTopOf="@id/quick_search_recycler_view" />
         </android.support.constraint.ConstraintLayout>
 
-        <org.mozilla.focus.widget.FlowLayout
+        <ajit.browser.focus.widget.FlowLayout
             android:id="@+id/search_suggestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,4 +114,4 @@
         android:background="@color/colorUrlInputBackground"
         android:contentDescription="@string/content_description_dismiss_input" />
 
-</org.mozilla.focus.widget.ResizableKeyboardLayout>
+</ajit.browser.focus.widget.ResizableKeyboardLayout>
