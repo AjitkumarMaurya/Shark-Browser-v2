@@ -51,6 +51,10 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -191,6 +195,7 @@ public class BrowserFragment extends LocaleAwareFragment implements View.OnClick
     private LottieAnimationView downloadingIndicator;
     private ImageView downloadIndicator;
     private View downloadIndicatorIntro;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     public void onViewStateRestored(Bundle savedInstanceState) {
@@ -393,6 +398,10 @@ public class BrowserFragment extends LocaleAwareFragment implements View.OnClick
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_browser, container, false);
 
+
+        MobileAds.initialize(getActivity(), getString(R.string.app_id));
+
+
         videoContainer = view.findViewById(R.id.video_container);
         browserContainer = view.findViewById(R.id.browser_container);
 
@@ -500,6 +509,30 @@ public class BrowserFragment extends LocaleAwareFragment implements View.OnClick
                 }
             }
         }
+
+
+        mInterstitialAd = new InterstitialAd(getActivity());
+        mInterstitialAd.setAdUnitId(getString(R.string.initial_id));
+
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
+        mInterstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdLoaded() {
+                mInterstitialAd.show();
+                super.onAdLoaded();
+            }
+        });
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+
+
+        });
     }
 
     private interface DoWithThemeManager {

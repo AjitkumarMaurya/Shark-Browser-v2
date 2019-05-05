@@ -8,7 +8,6 @@ apply from: '../buildSrc/checkstyle.gradle'
 apply from: '../buildSrc/findbugs.gradle'
 apply from: 'buildscripts/l10n.gradle'
 
-
 android {
     compileSdkVersion Versions.compile_sdk
     buildToolsVersion Versions.build_tools
@@ -18,7 +17,7 @@ android {
         targetSdkVersion Versions.target_sdk
         versionCode 3
         versionName '1.0.3'
-          multiDexEnabled true
+        multiDexEnabled true
 
         vectorDrawables {
             useSupportLibrary false
@@ -192,6 +191,8 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:${Versions.support}"
     implementation "com.android.support.constraint:constraint-layout:${Versions.constraint}"
     implementation "android.arch.work:work-runtime:${Versions.arch_work}"
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.android.support:multidex:1.0.3'
 
 
     // Architecture components
@@ -253,7 +254,6 @@ dependencies {
     implementation project(':newspoint')
     implementation project(':partnerrepository')
 
-    implementation 'com.google.android.gms:play-services-ads:17.1.2'
 
 }
 
