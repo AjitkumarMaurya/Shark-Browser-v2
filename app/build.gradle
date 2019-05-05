@@ -252,6 +252,9 @@ dependencies {
     implementation project(':bhaskar')
     implementation project(':newspoint')
     implementation project(':partnerrepository')
+
+    implementation 'com.google.android.gms:play-services-ads:17.1.2'
+
 }
 
 // -------------------------------------------------------------------------------------------------
