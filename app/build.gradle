@@ -90,7 +90,7 @@ android {
     /*
     testBuildType "firebase"
     */
-    testOptions {
+   /* testOptions {
         animationsDisabled = true
         unitTests.returnDefaultValues = true
         unitTests.includeAndroidResources = true
@@ -99,9 +99,9 @@ android {
     // used by Room, to test migrations
     sourceSets {
         androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
-    }
+    }*/
 
-    flavorDimensions "product"
+/*    flavorDimensions "product"
 
     productFlavors {
         focus {
@@ -116,11 +116,11 @@ android {
             versionNameSuffix ".nightly"
         }
 
-       /* // We can build with two engines: webkit or gecko
+       *//* // We can build with two engines: webkit or gecko
         webkit {
             dimension "engine"
         }
-*/
+*//*
     }
 
     variantFilter { variant ->
@@ -146,7 +146,7 @@ android {
 
         // used by Room, to test migrations
         androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
-    }
+    }*/
 }
 
 repositories {

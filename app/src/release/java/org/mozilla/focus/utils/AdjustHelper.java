@@ -15,9 +15,9 @@ import com.adjust.sdk.AdjustConfig;
 import com.adjust.sdk.AdjustEvent;
 import com.adjust.sdk.LogLevel;
 
-import org.mozilla.focus.BuildConfig;
-import org.mozilla.focus.FocusApplication;
-import org.mozilla.focus.telemetry.TelemetryWrapper;
+import ajit.browser.lightning.BuildConfig;
+import ajit.browser.focus.FocusApplication;
+import ajit.browser.focus.telemetry.TelemetryWrapper;
 
 import javax.annotation.Nullable;
 
