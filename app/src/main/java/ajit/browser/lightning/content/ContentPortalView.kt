@@ -67,11 +67,9 @@ class ContentPortalView : CoordinatorLayout, ContentPortalListener {
 
         setupContentPortalView()
 
-        if (ajit.browser.focus.utils.AppConfigWrapper.hasEcommerceShoppingLink()) {
-            setupViewShoppingLink()
-        } else {
+
             setupViewNews()
-        }
+
     }
 
     private fun setupViewShoppingLink() {
@@ -83,9 +81,6 @@ class ContentPortalView : CoordinatorLayout, ContentPortalListener {
         recyclerView?.layoutManager = GridLayoutManager(context, SHOPPINGLINK_GRID_SPAN)
         recyclerView?.adapter = shoppinglinkAdapter
 
-        val ecommerceShoppingLinks = ajit.browser.focus.utils.AppConfigWrapper.getEcommerceShoppingLinks()
-        ecommerceShoppingLinks.add(ShoppingLink("", "footer", "", ""))
-        shoppinglinkAdapter.submitList(ecommerceShoppingLinks)
     }
 
     private fun setupViewNews() {

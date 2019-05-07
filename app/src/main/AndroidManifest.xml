@@ -220,12 +220,12 @@
             android:name="ajit.browser.focus.components.RelocateService"
             android:exported="false" />
 
-        <provider
+      <!--  <provider
             android:name="ajit.browser.focus.provider.FirebaseInitProvider"
             android:authorities="${applicationId}.provider.firebasehelperprovider"
             android:enabled="true"
             android:exported="false"
-            android:initOrder="100" />
+            android:initOrder="100" />-->
 
         <service
             android:name="ajit.browser.focus.components.ComponentToggleService"

@@ -53,9 +53,7 @@ public class NewFeatureNotice {
     }
 
     public boolean isNewsEnabled() {
-        return preferences.getBoolean(PREF_KEY_CONTENT_PORTAL, false) &&
-                AppConfigWrapper.isLifeFeedEnabled();
-    }
+        return preferences.getBoolean(PREF_KEY_CONTENT_PORTAL, false);}
 
     public void setLiteUpdateDidShow() {
         setFirstRunDidShow();
@@ -126,8 +124,7 @@ public class NewFeatureNotice {
      * @return true if we have the E-Commerce ShoppingLink feature and haven't shown the on-boarding
      */
     public boolean shouldShowEcShoppingLinkOnboarding() {
-        final boolean hasEcShoppingLink = AppConfigWrapper.hasEcommerceShoppingLink();
-        return hasEcShoppingLink && !preferences.getBoolean(PREF_KEY_BOOLEAN_EC_SHOPPINGLINK_SHOWN, false);
+        return !preferences.getBoolean(PREF_KEY_BOOLEAN_EC_SHOPPINGLINK_SHOWN, false);
     }
 
     public void hasShownEcShoppingLink() {

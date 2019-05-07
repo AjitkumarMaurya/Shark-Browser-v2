@@ -35,8 +35,7 @@ class PeriodicReceiver : BroadcastReceiver() {
             }
         }
 
-        val config = ajit.browser.focus.utils.AppConfigWrapper.getFirstLaunchWorkerTimer()
-        val delayHoursToInstallTime = when (config.toInt()) {
+        /*val delayHoursToInstallTime = when (config.toInt()) {
             FirstLaunchWorker.TIMER_DISABLED -> {
                 return
             }
@@ -59,7 +58,7 @@ class PeriodicReceiver : BroadcastReceiver() {
         workManager.enqueue(builder.build())
 
         val message = ajit.browser.focus.utils.AppConfigWrapper.getFirstLaunchNotificationMessage()
-        TelemetryWrapper.receiveFirstrunConfig(delayMinutes, message)
+        TelemetryWrapper.receiveFirstrunConfig(delayMinutes, message)*/
     }
 
     private fun calculateDelayMinutes(context: Context, delayMinutesToInstallTime: Long): Long {

@@ -19,7 +19,6 @@ import android.os.StrictMode
 import android.preference.PreferenceManager
 import android.util.Log
 import android.webkit.PermissionRequest
-import org.mozilla.focus.utils.AdjustHelper
 import org.mozilla.telemetry.Telemetry
 import org.mozilla.telemetry.TelemetryHolder
 import org.mozilla.telemetry.config.TelemetryConfiguration
@@ -918,9 +917,7 @@ object TelemetryWrapper {
         EventBuilder(Category.ACTION, Method.SHARE, Object.TOOLBAR, Value.BOOKMARK)
                 .extra(Extra.TO, java.lang.Boolean.toString(isAdd))
                 .queue()
-        if (isAdd) {
-            AdjustHelper.trackEvent(EVENT_SAVE_BOOKMKARK)
-        }
+
     }
 
     @TelemetryDoc(
@@ -933,7 +930,6 @@ object TelemetryWrapper {
     @JvmStatic
     fun clickAddToHome() {
         EventBuilder(Category.ACTION, Method.PIN_SHORTCUT, Object.TOOLBAR, Value.LINK).queue()
-       AdjustHelper.trackEvent(EVENT_ADD_TO_HOMESCREEN)
     }
 
     @TelemetryDoc(
@@ -953,7 +949,6 @@ object TelemetryWrapper {
                 .extra(Extra.CATEGORY, category)
                 .extra(Extra.CATEGORY_VERSION, Integer.toString(categoryVersion))
                 .queue()
-        AdjustHelper.trackEvent(EVENT_TAKE_SCREENSHOT)
     }
 
     @TelemetryDoc(
@@ -1072,9 +1067,7 @@ object TelemetryWrapper {
     @JvmStatic
     fun togglePrivateMode(enter: Boolean) {
         EventBuilder(Category.ACTION, Method.CHANGE, Object.PRIVATE_MODE, if (enter) Value.ENTER else Value.EXIT).queue()
-        if (enter) {
-            AdjustHelper.trackEvent(EVENT_ENTER_PRIVATE_MODE)
-        }
+
     }
 
     @TelemetryDoc(
@@ -1561,9 +1554,7 @@ object TelemetryWrapper {
         EventBuilder(Category.ACTION, Method.CLICK, Object.FEEDBACK, value)
                 .extra(Extra.SOURCE, source).extra(Extra.VERSION, RATE_APP_NOTIFICATION_TELEMETRY_VERSION.toString())
                 .queue()
-        if (Value.POSITIVE == value) {
-           AdjustHelper.trackEvent(EVENT_FEEDBACK_POSITIVE)
-        }
+
     }
 
     @TelemetryDoc(
@@ -1675,9 +1666,7 @@ object TelemetryWrapper {
                 .extra(Extra.SOURCE, source)
                 .queue()
 
-        if (Value.SHARE == value) {
-            AdjustHelper.trackEvent(EVENT_SHARE_APP)
-        }
+
     }
 
     @TelemetryDoc(
@@ -2011,7 +2000,7 @@ object TelemetryWrapper {
 
     @JvmStatic
     fun clickDefaultBrowserInSetting() {
-        AdjustHelper.trackEvent(EVENT_SET_DEFAULT_BROWSER)
+
     }
 
     @TelemetryDoc(
@@ -2029,20 +2018,17 @@ object TelemetryWrapper {
 
     internal class EventBuilder @JvmOverloads constructor(category: String, method: String, `object`: String?, value: String? = null) {
         var telemetryEvent: TelemetryEvent
-        var firebaseEvent: ajit.browser.focus.telemetry.FirebaseEvent
 
         init {
             lazyInit()
             Log.d(TAG, "EVENT:$category/$method/$`object`/$value")
 
             telemetryEvent = TelemetryEvent.create(category, method, `object`, value)
-            firebaseEvent = ajit.browser.focus.telemetry.FirebaseEvent.create(category, method, `object`, value)
         }
 
         fun extra(key: String, value: String): EventBuilder {
             Log.d(TAG, "EXTRA:$key/$value")
             telemetryEvent.extra(key, value)
-            firebaseEvent.param(key, value)
             return this
         }
 
@@ -2060,7 +2046,6 @@ object TelemetryWrapper {
                     telemetryEvent.queue()
                 }
 
-                firebaseEvent.event(context)
             }
         }
 

@@ -32,9 +32,9 @@ class PrivateMode {
         @JvmStatic
         fun isEnable(context: Context): Boolean {
             // We look at Firebase Remote Config if in Release and Beta build type
-            if (ajit.browser.focus.utils.AppConstants.isReleaseBuild() || ajit.browser.focus.utils.AppConstants.isBetaBuild()) {
+            /*if (ajit.browser.focus.utils.AppConstants.isReleaseBuild() || ajit.browser.focus.utils.AppConstants.isBetaBuild()) {
                 return ajit.browser.focus.utils.AppConfigWrapper.isPrivateModeEnabled()
-            }
+            }*/
             // In Debug and Firebase(debug) build type, enable Private Mode by default
             return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(PREF_KEY_PRIVATE_MODE_ENABLED, true)
         }

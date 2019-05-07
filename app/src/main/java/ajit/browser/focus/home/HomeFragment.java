@@ -394,7 +394,7 @@ public class HomeFragment extends LocaleAwareFragment implements TopSitesContrac
             LoggerWrapper.throwOrWarn(TAG, "Failed to open Cache directory when reading cached banner config");
         }
         // Setup from Network
-        String manifest = AppConfigWrapper.getBannerRootConfig();
+        String manifest ="";
         if (TextUtils.isEmpty(manifest)) {
             deleteCache(context);
             banner.setAdapter(null);
@@ -475,19 +475,9 @@ public class HomeFragment extends LocaleAwareFragment implements TopSitesContrac
                              @Nullable Bundle savedInstanceState) {
 
         final View view;
-        boolean hasNewsPortal = AppConfigWrapper.hasNewsPortal();
-        if (hasNewsPortal || AppConfigWrapper.hasEcommerceShoppingLink()) {
-            view = inflater.inflate(R.layout.fragment_homescreen_content, container, false);
 
-            setupContentPortalView(view);
-
-            if (hasNewsPortal && contentPanel != null) {
-                newsPresenter = new NewsPresenter(this);
-                contentPanel.setNewsListListener(newsPresenter);
-            }
-        } else {
             view = inflater.inflate(R.layout.fragment_homescreen, container, false);
-        }
+
 
         this.recyclerView = view.findViewById(R.id.main_list);
 
@@ -612,7 +602,7 @@ public class HomeFragment extends LocaleAwareFragment implements TopSitesContrac
     public void onResume() {
         super.onResume();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(FirebaseHelper.FIREBASE_READY);
+        //intentFilter.addAction(FirebaseHelper.FIREBASE_READY);
         this.receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -628,9 +618,7 @@ public class HomeFragment extends LocaleAwareFragment implements TopSitesContrac
         setNightModeEnabled(Settings.getInstance(getActivity()).isNightModeEnable());
 
         View fragmentView = getView();
-        if (fragmentView != null) {
-            initFeatureSurveyViewIfNecessary(fragmentView);
-        }
+
 
         playContentPortalAnimation();
         if (contentPanel != null) {
@@ -950,62 +938,7 @@ public class HomeFragment extends LocaleAwareFragment implements TopSitesContrac
         }
     }
 
-    private void initFeatureSurveyViewIfNecessary(final View view) {
-        final RemoteConfigConstants.SURVEY featureSurvey = RemoteConfigConstants.SURVEY.Companion.parseLong(AppConfigWrapper.getFeatureSurvey());
-        final ImageView imgSurvey = view.findViewById(R.id.home_wifi_vpn_survey);
-        final Settings.EventHistory eventHistory = Settings.getInstance(getContext()).getEventHistory();
-        if (featureSurvey == RemoteConfigConstants.SURVEY.WIFI_FINDING && !eventHistory.contains(Settings.Event.FeatureSurveyWifiFinding)) {
-            imgSurvey.setImageResource(R.drawable.find_wifi);
-            imgSurvey.setVisibility(View.VISIBLE);
-            if (getContext() != null) {
-                imgSurvey.setOnClickListener(new FeatureSurveyViewHelper(getContext(), featureSurvey));
-            }
-        } else if (featureSurvey == RemoteConfigConstants.SURVEY.VPN && !eventHistory.contains(Settings.Event.FeatureSurveyVpn)) {
-            imgSurvey.setImageResource(R.drawable.vpn);
-            imgSurvey.setVisibility(View.VISIBLE);
-            if (getContext() != null) {
-                imgSurvey.setOnClickListener(new FeatureSurveyViewHelper(getContext(), featureSurvey));
-            }
-        } else if (featureSurvey == RemoteConfigConstants.SURVEY.VPN_RECOMMENDER && !eventHistory.contains(Settings.Event.VpnRecommenderIgnore)) {
-            PackageInfo packageInfo = null;
-            final String packageName = AppConfigWrapper.getVpnRecommenderPackage();
-            try {
-                Activity activity = getActivity();
-                if (activity != null) {
-                    packageInfo = activity.getPackageManager().getPackageInfo(packageName, 0);
-                }
-            } catch (PackageManager.NameNotFoundException ex) {
-                ex.printStackTrace();
-            }
-            if (packageInfo != null) {
-                eventHistory.add(Settings.Event.VpnAppWasDownloaded);
-                // Show vpn recommender, click vpn will launch vpn app
-                imgSurvey.setImageResource(R.drawable.vpn);
-                imgSurvey.setVisibility(View.VISIBLE);
-                imgSurvey.setOnClickListener(v -> {
-                    Intent intent = getActivity().getPackageManager().getLaunchIntentForPackage(packageName);
-                    startActivity(intent);
-                    TelemetryWrapper.clickVpnRecommender(true);
-                });
-                TelemetryWrapper.showVpnRecommender(true);
-            } else {
-                // No vpn app is installed
-                if (eventHistory.contains(Settings.Event.VpnAppWasDownloaded)) {
-                    // Vpn app was downloaded before, hide vpn recommender
-                    imgSurvey.setVisibility(View.GONE);
-                } else {
-                    // Vpn app wasn't downloaded before, show vpn recommender hint
-                    if (getContext() != null) {
-                        imgSurvey.setOnClickListener(new FeatureSurveyViewHelper(getContext(), featureSurvey));
-                        imgSurvey.setVisibility(View.VISIBLE);
-                    }
-                    TelemetryWrapper.showVpnRecommender(false);
-                }
-            }
-        } else {
-            imgSurvey.setVisibility(View.GONE);
-        }
-    }
+
 
     public void updateTopSitesData() {
         initDefaultSites();
@@ -1276,11 +1209,9 @@ public class HomeFragment extends LocaleAwareFragment implements TopSitesContrac
     private void showContentPortal() {
         if (contentPanel != null) {
             contentPanel.show(true);
-            if (AppConfigWrapper.hasEcommerceShoppingLink()) {
-                TelemetryWrapper.openLifeFeedEc();
-            } else {
+
                 TelemetryWrapper.openLifeFeedNews();
-            }
+
         }
     }
 

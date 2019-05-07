@@ -1,17 +1,12 @@
 package ajit.browser.lightning.promotion
 
+import ajit.browser.focus.utils.DialogUtils
 import android.content.Context
 import android.support.annotation.VisibleForTesting
-import ajit.browser.focus.utils.AppConfigWrapper
-import ajit.browser.focus.utils.IntentUtils
-import ajit.browser.focus.utils.NewFeatureNotice
-import ajit.browser.focus.utils.SafeIntent
-import ajit.browser.focus.utils.Settings
 import kotlin.properties.Delegates
 
 interface PromotionViewContract {
     fun postSurveyNotification()
-    fun showRateAppDialog()
     fun showRateAppNotification()
     fun showShareAppDialog()
     fun showPrivacyPolicyUpdateNotification()
@@ -46,14 +41,14 @@ class PromotionModel {
         didShowShareDialog = history.contains(ajit.browser.focus.utils.Settings.Event.ShowShareAppDialog)
         didDismissRateDialog = history.contains(ajit.browser.focus.utils.Settings.Event.DismissRateAppDialog)
         didShowRateAppNotification = history.contains(ajit.browser.focus.utils.Settings.Event.ShowRateAppNotification)
-        isSurveyEnabled = ajit.browser.focus.utils.AppConfigWrapper.isSurveyNotificationEnabled() && !history.contains(ajit.browser.focus.utils.Settings.Event.PostSurveyNotification)
+       // isSurveyEnabled = ajit.browser.focus.utils.AppConfigWrapper.isSurveyNotificationEnabled() && !history.contains(ajit.browser.focus.utils.Settings.Event.PostSurveyNotification)
         if (accumulateAppCreateCount()) {
             history.add(ajit.browser.focus.utils.Settings.Event.AppCreate)
         }
         appCreateCount = history.getCount(ajit.browser.focus.utils.Settings.Event.AppCreate)
-        rateAppDialogThreshold = ajit.browser.focus.utils.AppConfigWrapper.getRateDialogLaunchTimeThreshold()
-        rateAppNotificationThreshold = ajit.browser.focus.utils.AppConfigWrapper.getRateAppNotificationLaunchTimeThreshold()
-        shareAppDialogThreshold = ajit.browser.focus.utils.AppConfigWrapper.getShareDialogLaunchTimeThreshold(didDismissRateDialog)
+        rateAppDialogThreshold = 6
+        rateAppNotificationThreshold = 12
+        shareAppDialogThreshold = 0
 
         shouldShowPrivacyPolicyUpdate = newFeatureNotice.shouldShowPrivacyPolicyUpdate()
     }
@@ -75,17 +70,15 @@ class PromotionPresenter {
                 return
             }
 
-            if (!promotionModel.didShowRateDialog && promotionModel.appCreateCount >= promotionModel.rateAppDialogThreshold) {
-                promotionViewContract.showRateAppDialog()
-            } else if (promotionModel.didDismissRateDialog && !promotionModel.didShowRateAppNotification && promotionModel.appCreateCount >= promotionModel.rateAppNotificationThreshold) {
+           if (promotionModel.didDismissRateDialog && !promotionModel.didShowRateAppNotification && promotionModel.appCreateCount >= promotionModel.rateAppNotificationThreshold) {
                 promotionViewContract.showRateAppNotification()
             } else if (!promotionModel.didShowShareDialog && promotionModel.appCreateCount >= promotionModel.shareAppDialogThreshold) {
                 promotionViewContract.showShareAppDialog()
             }
 
-            if (promotionModel.isSurveyEnabled && promotionModel.appCreateCount >= ajit.browser.focus.utils.AppConfigWrapper.getSurveyNotificationLaunchTimeThreshold()) {
+           /* if (promotionModel.isSurveyEnabled && promotionModel.appCreateCount >= ajit.browser.focus.utils.AppConfigWrapper.getSurveyNotificationLaunchTimeThreshold()) {
                 promotionViewContract.postSurveyNotification()
-            }
+            }*/
 
             if (promotionModel.shouldShowPrivacyPolicyUpdate) {
                 promotionViewContract.showPrivacyPolicyUpdateNotification()

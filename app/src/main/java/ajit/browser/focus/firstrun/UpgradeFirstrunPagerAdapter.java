@@ -22,12 +22,7 @@ public class UpgradeFirstrunPagerAdapter extends FirstrunPagerAdapter {
                     R.drawable.ic_onboarding_first_use));
         }
 
-        final boolean shouldShowNews = featureNotice.from40to114() && AppConfigWrapper.hasNewsPortal();
-        final boolean shouldShowShoppingLink = featureNotice.shouldShowEcShoppingLinkOnboarding();
-        if (shouldShowNews || shouldShowShoppingLink) {
-            featureNotice.hasShownEcShoppingLink();
-            this.pages.add(FirstRunLibrary.buildLifeFeedFirstrun(context));
-        }
+
 
         PinSiteManager pinSiteManager = PinSiteManagerKt.getPinSiteManager(context);
         if (pinSiteManager.isEnabled() && pinSiteManager.isFirstTimeEnable()) {

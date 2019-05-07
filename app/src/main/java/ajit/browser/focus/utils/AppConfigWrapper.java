@@ -25,7 +25,7 @@ public class AppConfigWrapper {
     private static final boolean SURVEY_NOTIFICATION_ENABLED = false;
     static final int DRIVE_DEFAULT_BROWSER_FROM_MENU_SETTING_THRESHOLD = 2;
 
-    public static long getRateAppNotificationLaunchTimeThreshold() {
+   /* public static long getRateAppNotificationLaunchTimeThreshold() {
         return FirebaseHelper.getFirebase().getRcLong(FirebaseHelper.RATE_APP_NOTIFICATION_THRESHOLD);
     }
 
@@ -106,9 +106,9 @@ public class AppConfigWrapper {
         return FirebaseHelper.getFirebase().getRcString(FirebaseHelper.FIRST_LAUNCH_NOTIFICATION_MESSAGE);
     }
 
-    /**
+    *//**
      * @return true if Content Portal News is enabled in Firebase Remote Config
-     */
+     *//*
     public static boolean hasNewsPortal() {
         return FirebaseHelper.getFirebase().getRcBoolean(FirebaseHelper.ENABLE_LIFE_FEED);
     }
@@ -117,12 +117,12 @@ public class AppConfigWrapper {
         return !getEcommerceShoppingLinks().isEmpty();
     }
 
-    /**
+    *//**
      * Return a list of vouchers and shopping links for e-commerce content portal.
      * This is also used to determine if the user should see e-commerce or News in content portal.
      * In the future, the user may have both e-commerce and News. But now, let's make it simple.
      * @return ArrayList of shopping links or empty list if we encounter an error.
-     */
+     *//*
     public static ArrayList<ShoppingLink> getEcommerceShoppingLinks() {
         ArrayList<ShoppingLink> shoppingLinks = new ArrayList<>();
 
@@ -181,5 +181,5 @@ public class AppConfigWrapper {
 
     static String getShareAppMessage() {
         return FirebaseHelper.getFirebase().getRcString(FirebaseHelper.STR_SHARE_APP_DIALOG_MSG);
-    }
+    }*/
 }

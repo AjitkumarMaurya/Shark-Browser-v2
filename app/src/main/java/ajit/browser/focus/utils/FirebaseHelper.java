@@ -5,6 +5,7 @@
 
 package ajit.browser.focus.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,29 +15,17 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import ajit.browser.focus.activity.MainActivity;
-import ajit.browser.focus.screenshot.ScreenshotManager;
-import ajit.browser.lightning.content.NewsSourceManager;
-import ajit.browser.lightning.widget.NewsSourcePreference;
-import ajit.browser.threadutils.ThreadUtils;
-import ajit.browser.lightning.R;
+import java.util.HashMap;
+
 import ajit.browser.focus.activity.MainActivity;
 import ajit.browser.focus.home.FeatureSurveyViewHelper;
 import ajit.browser.focus.home.HomeFragment;
 import ajit.browser.focus.screenshot.ScreenshotManager;
+import ajit.browser.lightning.R;
 import ajit.browser.lightning.content.NewsSourceManager;
 import ajit.browser.lightning.periodic.FirstLaunchWorker;
-import ajit.browser.threadutils.ThreadUtils;
-
-import java.util.HashMap;
-
-import ajit.browser.focus.activity.MainActivity;
-import ajit.browser.focus.screenshot.ScreenshotManager;
-import ajit.browser.lightning.content.NewsSourceManager;
 import ajit.browser.lightning.widget.NewsSourcePreference;
 import ajit.browser.threadutils.ThreadUtils;
-
-import static ajit.browser.lightning.widget.NewsSourcePreference.PREF_INT_NEWS_PRIORITY;
 
 /**
  * A wrapper around FirebaseContract. It's job:
@@ -72,12 +61,12 @@ final public class FirebaseHelper {
     static final String LIFE_FEED_PROVIDERS = "life_feed_providers";
     static final String STR_E_COMMERCE_SHOPPINGLINKS = "str_e_commerce_shoppinglinks";
 
-    private static final String FIREBASE_WEB_ID = "default_web_client_id";
-    private static final String FIREBASE_DB_URL = "firebase_database_url";
+    private static final String FIREBASE_WEB_ID = "AIzaSyDHCAvJ2EPfHKKSNVtsKFNzW_nDl2so0Rk";
+    private static final String FIREBASE_DB_URL = "https://shark-browser-57df0.firebaseio.com/";
     private static final String FIREBASE_CRASH_REPORT = "google_crash_reporting_api_key";
-    private static final String FIREBASE_APP_ID = "google_app_id";
-    private static final String FIREBASE_API_KEY = "google_api_key";
-    private static final String FIREBASE_PROJECT_ID = "project_id";
+    private static final String FIREBASE_APP_ID = "shark-browser-57df0";
+    private static final String FIREBASE_API_KEY = "AIzaSyAXtiRnNYWA3UxAsQ041JHLzF9guY-CacA";
+    private static final String FIREBASE_PROJECT_ID = "shark-browser-57df0";
 
     static final String STR_SHARE_APP_DIALOG_TITLE = "str_share_app_dialog_title";
     static final String STR_SHARE_APP_DIALOG_CONTENT = "str_share_app_dialog_content";
@@ -154,10 +143,6 @@ final public class FirebaseHelper {
         final String apiKey = getStringResourceByName(context, FIREBASE_API_KEY);
         final String projectId = getStringResourceByName(context, FIREBASE_PROJECT_ID);
         // Firebase will use those resources before initialized. Check them first.
-        if (webId.isEmpty() || dbUrl.isEmpty() || crashReport.isEmpty() ||
-                appId.isEmpty() || apiKey.isEmpty() || projectId.isEmpty()) {
-            throw new IllegalStateException("Firebase related keys are not set");
-        }
 
         return new FirebaseImpl(provideDefaultValues(context));
     }
@@ -249,7 +234,7 @@ final public class FirebaseHelper {
             map.put(FirebaseHelper.STR_SHARE_APP_DIALOG_TITLE, context.getString(R.string.share_app_dialog_text_title,
                     context.getString(R.string.app_name)));
             map.put(FirebaseHelper.STR_SHARE_APP_DIALOG_CONTENT, context.getString(R.string.share_app_dialog_text_content));
-            final String shareAppDialogMsg = context.getString(R.string.share_app_promotion_text,
+            @SuppressLint("StringFormatMatches") final String shareAppDialogMsg = context.getString(R.string.share_app_promotion_text,
                     context.getString(R.string.app_name), context.getString(R.string.share_app_google_play_url),
                     context.getString(R.string.mozilla));
             map.put(FirebaseHelper.STR_SHARE_APP_DIALOG_MSG, shareAppDialogMsg);

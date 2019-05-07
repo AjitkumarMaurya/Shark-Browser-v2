@@ -8,6 +8,7 @@ import androidx.work.WorkerParameters
 import ajit.browser.focus.telemetry.TelemetryWrapper
 import ajit.browser.focus.utils.AppConfigWrapper
 import ajit.browser.focus.utils.DialogUtils
+import ajit.browser.lightning.R
 
 class FirstLaunchWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
 
@@ -36,9 +37,9 @@ class FirstLaunchWorker(context: Context, workerParams: WorkerParameters) : Work
     }
 
     override fun doWork(): Result {
-        val message = ajit.browser.focus.utils.AppConfigWrapper.getFirstLaunchNotificationMessage()
+        val message = "Make default browser" + "?\uD83D\uDE0A"
         ajit.browser.focus.utils.DialogUtils.showDefaultSettingNotification(applicationContext, message)
-        TelemetryWrapper.showFirstrunNotification(ajit.browser.focus.utils.AppConfigWrapper.getFirstLaunchWorkerTimer(), message)
+        //TelemetryWrapper.showFirstrunNotification(ajit.browser.focus.utils.AppConfigWrapper.getFirstLaunchWorkerTimer(), message)
 
         setNotificationFired(applicationContext, true)
         return Result.success()

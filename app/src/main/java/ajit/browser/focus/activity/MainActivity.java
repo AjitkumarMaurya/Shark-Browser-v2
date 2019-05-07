@@ -502,12 +502,9 @@ public class MainActivity extends BaseActivity implements FragmentListener,
         turboModeButton.setSelected(isTurboEnabled());
         blockImageButton.setSelected(isBlockingImages());
 
-        final boolean isMyShotUnreadEnabled = AppConfigWrapper.getMyshotUnreadEnabled();
-        final boolean showUnread = isMyShotUnreadEnabled && Settings.getInstance(this).hasUnreadMyShot();
         final boolean privateModeActivate = PrivateMode.hasPrivateSession(this);
         final Settings settings = Settings.getInstance(getApplicationContext());
 
-        myshotIndicator.setVisibility(showUnread ? View.VISIBLE : View.GONE);
         privateModeIndicator.setVisibility(privateModeActivate ? View.VISIBLE : View.GONE);
         if (pendingMyShotOnBoarding) {
             pendingMyShotOnBoarding = false;
@@ -702,10 +699,8 @@ public class MainActivity extends BaseActivity implements FragmentListener,
             settings.addMenuPreferenceClickCount();
         }
 
-        final int count = settings.getMenuPreferenceClickCount();
-        final int threshold = AppConfigWrapper.getDriveDefaultBrowserFromMenuSettingThreshold();
         // even if user above threshold and not set-as-default-browser, still don't show notification.
-        if (count == threshold && !Browsers.isDefaultBrowser(this)) {
+        if ( !Browsers.isDefaultBrowser(this)) {
             DialogUtils.showDefaultSettingNotification(this);
             TelemetryWrapper.showDefaultSettingNotification();
         }
@@ -1210,12 +1205,6 @@ public class MainActivity extends BaseActivity implements FragmentListener,
         Settings.EventHistory history = Settings.getInstance(this).getEventHistory();
         history.add(Settings.Event.PostSurveyNotification);
 
-    }
-
-    @Override
-    public void showRateAppDialog() {
-        DialogUtils.showRateAppDialog(this);
-        TelemetryWrapper.showRateApp(false);
     }
 
     @Override

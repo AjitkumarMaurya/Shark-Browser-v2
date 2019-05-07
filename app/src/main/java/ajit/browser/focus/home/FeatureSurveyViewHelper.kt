@@ -86,7 +86,7 @@ class FeatureSurveyViewHelper internal constructor(private val context: Context,
                     parentView.removeView(rootView)
                     isViewInit = false
                     // Open Play Store in a new tab
-                    val url = ajit.browser.focus.utils.AppConfigWrapper.getVpnRecommenderUrl()
+                    val url = "https://www.expressvpn.com/download-app?a_fid=MozillaFirefoxLite"
                     if (!TextUtils.isEmpty(url)) {
                         ajit.browser.focus.navigation.ScreenNavigator.get(context).showBrowserScreen(url, true, false)
                     }

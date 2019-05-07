@@ -34,13 +34,13 @@ public class FirebaseInitProvider extends ContentProvider {
         // Only debug build uses FirebaseNoOpImpl. Cause external contributors will not
         // work on Firebase related features.
         if (AppConstants.isBuiltWithFirebase()) {
-            contract = FirebaseHelper.provideFirebaseImpl(context);
+               contract = FirebaseHelper.provideFirebaseImpl(context);
             Log.d(TAG, "We are using FirebaseImpl");
         } else {
             contract = FirebaseHelper.provideFirebaseNoOpImpl(context);
             Log.d(TAG, "We are using FirebaseNoOpImpl");
         }
-        FirebaseHelper.init(context, enable, contract);
+        FirebaseHelper.init(context, enable,null);
         return true;
     }
 

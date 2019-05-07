@@ -14,7 +14,6 @@ import android.app.Activity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import com.squareup.leakcanary.LeakCanary
-import org.mozilla.focus.utils.AdjustHelper
 import java.io.File
 
 class FocusApplication : ajit.browser.focus.locale.LocaleAwareApplication() {
@@ -58,7 +57,7 @@ class FocusApplication : ajit.browser.focus.locale.LocaleAwareApplication() {
         ajit.browser.lightning.content.NewsSourceManager.getInstance().init(this)
 
         TelemetryWrapper.init(this)
-        AdjustHelper.setupAdjustIfNeeded(this)
+      //  AdjustHelper.setupAdjustIfNeeded(this)
 
         ajit.browser.focus.history.BrowsingHistoryManager.getInstance().init(this)
         ajit.browser.focus.screenshot.ScreenshotManager.getInstance().init(this)
